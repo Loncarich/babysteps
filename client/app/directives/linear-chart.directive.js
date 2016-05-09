@@ -6,10 +6,19 @@
     function linearChart($window) {
       return {
         restrict: 'EA',
-        template: "<svg width='850' height='200'></svg>",
-        link: function(scope, elem, attrs){
+        template: "<svg width='700' height='200'></svg>",
+        scope: {},
+        controller: 'VisualCtrl',
+        controllerAs: 'vm',
+        bindToController: {
+          salesDataToPlot: '='
+        },
+        link: function(scope, elem, attrs, controller){
           console.log('Link Running!');
-           var salesDataToPlot=scope[attrs.chartData];
+          console.log('this is scope', scope);
+          console.log('this is controller', controller);
+           // var salesDataToPlot=scope[attrs.chartData];
+           var salesDataToPlot = controller.salesData;;
            var padding = 20;
            var pathClass="path";
            var xScale, yScale, xAxisGen, yAxisGen, lineFun;
@@ -20,7 +29,8 @@
            var svg = d3.select(rawSvg[0]);
 
            function setChartParameters(){
-
+                console.log('setChartParameters running!');
+                console.log(salesDataToPlot)
                xScale = d3.scale.linear()
                    .domain([salesDataToPlot[0].hour, salesDataToPlot[salesDataToPlot.length-1].hour])
                    .range([padding + 5, rawSvg.attr("width") - padding]);
@@ -52,6 +62,7 @@
            }
 
          function drawLineChart() {
+              console.log('drawLineChart running!');
 
                setChartParameters();
 
@@ -73,7 +84,7 @@
                        "fill": "none",
                        "class": pathClass
                    });
-           }
+        }
 
            drawLineChart();
        }
@@ -81,5 +92,7 @@
 
 
     }
+
+linearChart();
 
 
