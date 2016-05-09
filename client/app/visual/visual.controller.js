@@ -22,14 +22,13 @@
         {hour: 9,sales: 55},
         {hour: 10,sales: 30}
     ];
+
     // functions
     function getCondition() {
       condition.getConditionBy($localStorage.username).then(function(data) {
         vm.data = data.data.condition;
       });
     }
-
-
 
   }
 })();
