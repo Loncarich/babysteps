@@ -5,7 +5,7 @@
     .module('baby.visual')
     .controller('VisualCtrl', VisualCtrl);
 
-  function VisualCtrl() {
+  function VisualCtrl(condition, $localStorage) {
     // initialize
     var vm = this;
 
@@ -54,11 +54,15 @@
     vm.timeEnd = 2000;
 
     // functions
-    // function getCondition() {
-    //   condition.getConditionBy($localStorage.username).then(function(data) {
-    //     vm.data = data.data.condition;
-    //   });
-    // }
+    vm.getCondition = getCondition;
+    vm.getCondition();
+
+    function getCondition() {
+      condition.getConditionBy($localStorage.username).then(function(data) {
+        vm.data = data.data.condition;
+        console.log(vm.data);
+      });
+    }
 
   }
 })();
