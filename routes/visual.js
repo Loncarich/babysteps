@@ -20,16 +20,20 @@ router.get('/', function(req, res) {
 var findCondition = function(username, childFirstName, res) {
   return new Q(User.findOne({'username': username}).exec())
     .then(function(user) {
+      var condition;
       for(var i = 0; i < user.children.length; i++) {
         if (user.children[i].firstName === childFirstName) {
-          var condition = user.children[i].condition;
+          condition = user.children[i].condition;
         }
       }
-      return new Q(Condition.findOne({'name': condition}).exec())
+      return new Q(Condition.findOne({'name': condition}).exec());
     })
     .then(function(condition) {
-      res.json({success: true, condition: condition});
+      res.json({
+        success: true,
+        condition: condition
+      });
     });
-}
+};
 
 module.exports = router;
