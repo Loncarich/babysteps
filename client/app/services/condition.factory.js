@@ -12,7 +12,7 @@
 
     return service;
 
-      function getConditionBy(username) {
+      function getConditionBy() {
         return $http.get('/visual', {
           headers: {
             child: 'Pinky'
