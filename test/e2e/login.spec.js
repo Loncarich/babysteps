@@ -6,7 +6,7 @@ describe('login', function() {
   });
 
 
-  it('should redirect to dashboard on successful login', function() {
+  // it('should redirect to dashboard on successful login', function() {
 
-  });
+  // });
 });

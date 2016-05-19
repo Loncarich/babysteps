@@ -3,7 +3,7 @@ var LoginPage = function() {
   this.passwordInput = element(by.model('login.password'));
 
   this.get = function() {
-    browser.get('http://localhost:8080/#/login');
+    browser.get('login');
   }
 
   this.setUsername = function(name) {
