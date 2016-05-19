@@ -9,6 +9,7 @@
       'ui.bootstrap',
       'angular-filepicker',
       'firebase',
+      'luegg.directives',
       /* feature areas */
       'baby.landing',
       'baby.signup',
@@ -18,7 +19,8 @@
       'baby.events',
       'baby.about',
       'baby.faq',
-      'baby.vaccinations', 
+      'baby.contact',
+      'baby.vaccinations',
       'baby.chat'
     ]);
 })();
