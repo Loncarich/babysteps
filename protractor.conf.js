@@ -19,7 +19,7 @@ exports.config = {
     defaultTimeoutInterval: 30000
   },
 
-  baseUrl: 'http://127.0.0.1:8080',
+  baseUrl: 'http://localhost:8080/#/',
 
   seleniumAddress: 'http://127.0.0.1:4444/wd/hub'
 };
